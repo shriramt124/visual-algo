@@ -49,7 +49,7 @@ export async function createEditor(container: HTMLElement) {
 
  const newnode1  = new ClassicPreset.Node('Tushar');
   newnode1.addControl('if',new ClassicPreset.InputControl("number",{initial:20}));
-  newnode1.addOutput("if",new ClassicPreset.Input(socket1));
+  newnode1.addInput("if",new ClassicPreset.Input(socket1));
   await editor.addNode(newnode1);
 
 
@@ -59,7 +59,7 @@ export async function createEditor(container: HTMLElement) {
   await editor.addNode(b);
 
   await editor.addConnection(new ClassicPreset.Connection(a, "a", b, "b"));
-  await editor.addConnection(new ClassicPreset.Connection(newnode1, "newnode1",newnode, "newnode",));
+  await editor.addConnection(new ClassicPreset.Connection(newnode, "while",newnode1, "if",));
 
   await area.translate(a.id, { x: 0, y: 0 });
   await area.translate(b.id, { x: 270, y: 0 });
